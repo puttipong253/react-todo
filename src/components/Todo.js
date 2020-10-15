@@ -2,8 +2,11 @@ import React from 'react'
 
 export default function Todo({ text, todo, todos, setTodos }) {
     const deleteHandler = () => {
-        setTodos(todos.filter(item => item.id !== todo.id))
+        if (todo.completed === true) {
+            setTodos(todos.filter(item => item.id !== todo.id))
+        }
     }
+    
     const completedHandler = () => {
         setTodos(todos.map(item => {
             if (item.id === todo.id) {
